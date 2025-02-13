@@ -1,0 +1,31 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        string[] lojas = { "Loja A", "Loja B", "Loja C", "Loja D", "Loja E", "Loja F", "Loja G", "Loja H" };
+        string[] produtos = { "Produto 1", "Produto 2", "Produto 3", "Produto 4" };
+        double[,] precos = new double[8, 4];
+        Random rand = new Random();
+
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                precos[i, j] = rand.Next(50, 200) + rand.NextDouble();
+            }
+        }
+
+        Console.WriteLine("Produtos com preço até R$ 120,00:");
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (precos[i, j] <= 120.00)
+                {
+                    Console.WriteLine($"{produtos[j]} - {lojas[i]} - R$ {precos[i, j]:F2}");
+                }
+            }
+        }
+    }
+}

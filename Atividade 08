@@ -1,0 +1,52 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        int[,] matriz = new int[10, 10]; 
+        int valor = 1;
+        int soma = 0, somaSecundaria = 0;
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                matriz[i, j] = valor++;
+            }
+        }
+
+        Console.WriteLine("\nMatriz 10x10:");
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                Console.Write(matriz[i, j].ToString("D2") + " "); 
+            }
+            Console.WriteLine();
+        }
+
+        Console.WriteLine("\nLinha diagonal principal:");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write(matriz[i, i].ToString("D2") + " ");
+            soma += matriz[i, i];
+        }
+        Console.WriteLine();
+
+        Console.WriteLine("\nSoma e média diagonal principal");
+        Console.WriteLine("Soma: " + soma);
+        Console.WriteLine($"Média: {soma / 10}");
+
+        Console.WriteLine("\nLinha diagonal secundária:");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write(matriz[i, 9 - i].ToString("D2") + " ");
+            somaSecundaria += matriz[i, 9 - i];
+        }
+        Console.WriteLine();
+
+        Console.WriteLine("\nSoma e média diagonal secundária");
+        Console.WriteLine("Soma: " + somaSecundaria);
+        Console.WriteLine($"Média: {somaSecundaria / 10}");
+    }
+}

@@ -1,0 +1,47 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[,] matriz = new int[10, 10]; 
+        int valor = 1; 
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                matriz[i, j] = valor;
+                valor++;
+            }
+        }
+
+        Console.WriteLine("\nMatriz 10x10:");
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                Console.Write(matriz[i, j].ToString("D2") + " "); 
+            }
+            Console.WriteLine();
+        }
+        
+        Console.WriteLine("\n\nMatriz 10x10 sem diagonal principal:");
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (i != j){
+                    Console.Write(matriz[i, j].ToString("D2") + " "); 
+                }
+            }
+            Console.WriteLine();
+        }
+
+        Console.WriteLine("\n\nLinha diagonal principal: ");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write(matriz[i, i].ToString("D2") + " ");
+        }
+    }
+}
